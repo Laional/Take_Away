@@ -20,10 +20,28 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <!--Import personal JS files-->
 
+    <script>
+        $(document).ready(function() {
+            $('.pushpin-demo-nav').each(function() {
+                var $this = $(this);
+                var $target = $('#' + $(this).attr('data-target'));
+                $this.pushpin({
+                    top: $target.offset().top,
+                    bottom: $target.offset().top + $target.outerHeight() - $this.height()
+                });
+            });
+            $('.target').pushpin({
+                top: 0,
+                bottom: 1000,
+                offset: 0,
+            });
+        });
+    </script>
+    
     <!--Barra de navegación simple del materializecss-->
-    <div class="navbar-fixed">
+    <div class="navbar">
         <nav>
-            <div class="nav-wrapper">
+            <div class="nav-wrapper"  style="padding-left: 1em; padding-right: 1em;">
                 <a href="#!" class="brand-logo">Logo</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="sass.html">Index</a></li>
@@ -34,7 +52,42 @@
             </div>
         </nav>
     </div>
-    
+    <!--Primer apartado del Pushpin (Entrantes)-->
+    <div id="blue" class="block blue">
+        <nav class="pushpin-demo-nav pinned" data-target="blue">
+            <div class="nav-wrapper light-blue">
+                <div class="container">
+                    <a href="#" class="brand-logo">Entrantes</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+        </div>
+    </div>
+    <!--Segundo apartado del pushpin (Primeros)-->
+    <div id="red" class="block red lighten-1">
+        <nav class="pushpin-demo-nav pin-top" data-target="red">
+            <div class="nav-wrapper red">
+                <div class="container">
+                    <a href="#" class="brand-logo">Primeros</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+        </div>
+    </div>
+    <!--Tercer apartado del pushpin (Postres)-->
+    <div id="green" class="block green lighten-1">
+        <nav class="pushpin-demo-nav pin-top" data-target="green">
+            <div class="nav-wrapper green">
+                <div class="container">
+                    <a href="#" class="brand-logo">Postres</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+        </div>
+    </div>
     <!--Footer estandar del materializecss-->
     <footer class="page-footer">
         <div class="container">
