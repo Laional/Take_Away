@@ -18,27 +18,27 @@ $(document).ready(function () {
 				console.log(result.query);
 				console.log(result.resultado);
 			}
-				var tbl_body = "";
-				if (debug) console.log("Pintando");
-				$.each(result.query, function () {
-					var tbl_row = "";
-					$.each(this, function (campo, valor) {
-						if (campo == "Foto_categoria") {
-							tbl_row += "<td>" +
-								"<img class='z-depth-4' src='../img/categorias/" +
-								valor +
-								"'width='90px'" +
-								"</td>";
-							if (debug) console.log(tbl_row);
-						} else {
-							tbl_row += "<td>" + valor + "</td>";
-						}
-					})
-					tbl_body += "<tr>" + tbl_row + "</tr>";
-
-					if (debug) console.log(tbl_body);
+			var tbl_body = "";
+			if (debug) console.log("Pintando");
+			$.each(result.query, function () {
+				var tbl_row = "";
+				$.each(this, function (campo, valor) {
+					if (campo == "Foto_categoria") {
+						tbl_row += "<td>" +
+							"<img class='z-depth-4' src='../img/categorias/" +
+							valor +
+							"'width='90px'" +
+							"</td>";
+						if (debug) console.log(tbl_row);
+					} else {
+						tbl_row += "<td>" + valor + "</td>";
+					}
 				})
-				$("#listaCategorias tbody").html(tbl_body);
+				tbl_body += "<tr>" + tbl_row + "</tr>";
+
+				if (debug) console.log(tbl_body);
+			})
+			$("#listaCategorias tbody").html(tbl_body);
 		},
 		error: function (result) {
 			alert("ERROR!!!!!!!");

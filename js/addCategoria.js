@@ -21,13 +21,13 @@ $(document).ready(function () {
 					//console.log(result.campos);
 					console.log(result.error);
 					console.log(result.sql);
-					if (result.error === 0) {
-						Materialize.toast('Categoría añadida correctamente!', 4000); // 4000 is the duration of the toast
-						//$('#adddCat')[0].reset(); // para reiniciar el formulario
-						$('addCategorias').trigger("reset"); // para reiniciar el formulario
-					} else {
-						Materialize.toast('Error al crear la categoría!', 5000); // 4000 is the duration of the toast
-					}
+				}
+				if (result.error === 0) {
+					Materialize.toast('Categoría añadida correctamente!', 4000); // 4000 is the duration of the toast
+					//$('#adddCat')[0].reset(); // para reiniciar el formulario
+					$('addCategorias').trigger("reset"); // para reiniciar el formulario
+				} else {
+					Materialize.toast('Error al crear la categoría!', 5000); // 4000 is the duration of the toast
 				}
 			},
 			error: function (result) {
