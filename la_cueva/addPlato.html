@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es-ES">
-    <head>
-        <!--Let browser know website is optimized for mobile-->
+
+<head>
+	<!--Let browser know website is optimized for mobile-->
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!--Import Google Icon Font-->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,65 +12,66 @@
 	<link type="text/css" rel="stylesheet" href="../css/styles.css">
 	<!--Document Title-->
 	<title>Take Away</title>
-    </head>
+</head>
 
-    <body>
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="../js/materialize.min.js"></script>
-        <script type="text/javascript" src="../js/addPlato.js"></script>
-        
-        <!-- Container Principal -------------------------------------------------------------------------------------- -->
-        <div class="container">
-            <h2>Nuevo Plato</h2>
-            <form action="" method="POST" id="addPlato">
-                <div class="row">
+<body>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/materialize.min.js"></script>
+	<script type="text/javascript" src="../js/addPlato.js"></script>
 
-                    <div class="col s12 m6 l6 input-field">
-                        <input id="p_nombre" name="Nombre_plato" type="text" class="validate" required>
-                        <label for="p_nombre">Nombre Plato</label>
-                    </div>
-                    <div class="col s12 m6 l6 input-field">
-                        <input id="p_precio" name="Precio_plato" type="number" class="validate" required step="0.01">
-                        <label for="p_precio">Precio Ración</label>
-                    </div>
-                    <div class="col s12 m12 l12 input-field">
-                        <textarea id="p_descripcion" name="Descripcion_plato" class="materialize-textarea validate"></textarea>
-                        <label for="p_descripcion">Descripción</label>
-                    </div> 
-                    <div class="col s12 m6 l6 input-field">
-                      <input id="p_foto" name="Foto_plato" type="text" class="validate" required>
-                        <label for="p_foto">Foto</label>
-                    </div>
+	<!-- Container Principal -------------------------------------------------------------------------------------- -->
+	<div class="container">
+		<h2>Nuevo Plato</h2>
+		<form action="" method="POST" id="addPlato">
+			<div class="row">
 
-                    <div class="col s12 m6 l6">
-                            <label>Categorias</label>
-                        <div class="input-field">
-                            
-                            <select id="categoria_plato" name="ID_categoria_plato">
+				<div class="col s12 m6 l6 input-field">
+					<input id="p_nombre" name="Nombre_plato" type="text" class="validate" required>
+					<label for="p_nombre">Nombre Plato</label>
+				</div>
+				<div class="col s12 m6 l6 input-field">
+					<input id="p_precio" name="Precio_plato" type="number" class="validate" required step="0.01">
+					<label for="p_precio">Precio Ración</label>
+				</div>
+				<div class="col s12 m12 l12 input-field">
+					<textarea id="p_descripcion" name="Descripcion_plato" class="materialize-textarea validate"></textarea>
+					<label for="p_descripcion">Descripción</label>
+				</div>
+				<div class="col s12 m6 l6 input-field">
+					<input id="p_foto" name="Foto_plato" type="text" class="validate" required>
+					<label for="p_foto">Foto</label>
+				</div>
+
+				<div class="col s12 m6 l6">
+					<label>Categorias</label>
+					<div class="input-field">
+
+						<select id="categoria_plato" name="ID_categoria_plato">
                                 
                             </select>
-                        </div>
-                    </div>
+					</div>
+				</div>
 
-                    <div class="col s12 m6 l6 switch">
-                        <h6>Disponibilidad del Plato</h6>
-                        <label>
+				<div class="col s12 m6 l6 switch">
+					<h6>Disponibilidad del Plato</h6>
+					<label>
                             No disponible
                             <input id="p_disponible" type="checkbox" name="Disponible_plato">
                             <span class="lever"></span>
                             Disponible
                         </label>
-                    </div>
-                    
-                    
-                </div>
-            <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 1em;">Crear Registro
+				</div>
+
+
+			</div>
+			<button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 1em;">Crear Registro
                 <i class="material-icons right">restaurant</i>
             </button>
-            </form>
+		</form>
 
-        </div>
+	</div>
 
-    </body>
+</body>
+
 </html>
