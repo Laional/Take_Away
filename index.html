@@ -2,118 +2,153 @@
 <html lang="es-ES">
 
 <head>
-    <!--Let browser know website is optimized for mobile-->
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <!--Import personal css Styles-->
-    <link type="text/css" rel="stylesheet" href="css/styles.css">
-    <!--Document Title-->
-    <title>Take Away</title>
+	<!--Let browser know website is optimized for mobile-->
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+	<!--Import personal css Styles-->
+	<link type="text/css" rel="stylesheet" href="css/styles.css">
+	<!--Document Title-->
+	<title>Take Away</title>
 </head>
 
 <body>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <!--Import personal JS files-->
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<!--Import personal JS files-->
 
-    <script>
-        $(document).ready(function() {
-            $('.pushpin-demo-nav').each(function() {
-                var $this = $(this);
-                var $target = $('#' + $(this).attr('data-target'));
-                $this.pushpin({
-                    top: $target.offset().top,
-                    bottom: $target.offset().top + $target.outerHeight() - $this.height()
-                });
-            });
-            $('.target').pushpin({
-                top: 0,
-                bottom: 1000,
-                offset: 0,
-            });
-        });
-    </script>
-    
-    <!--Barra de navegación simple del materializecss-->
-    <div class="navbar">
-        <nav>
-            <div class="nav-wrapper"  style="padding-left: 1em; padding-right: 1em;">
-                <a href="#!" class="brand-logo">Logo</a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Index</a></li>
-                    <li><a href="badges.html">Galería</a></li>
-                    <li><a href="badges.html">Info</a></li>
-                    <li><a href="badges.html">Contacto</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <!--Primer apartado del Pushpin (Entrantes)-->
-    <div id="blue" class="block blue">
-        <nav class="pushpin-demo-nav pinned" data-target="blue">
-            <div class="nav-wrapper light-blue">
-                <div class="container">
-                    <a href="#" class="brand-logo">Entrantes</a>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-        </div>
-    </div>
-    <!--Segundo apartado del pushpin (Primeros)-->
-    <div id="red" class="block red lighten-1">
-        <nav class="pushpin-demo-nav pin-top" data-target="red">
-            <div class="nav-wrapper red">
-                <div class="container">
-                    <a href="#" class="brand-logo">Primeros</a>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-        </div>
-    </div>
-    <!--Tercer apartado del pushpin (Postres)-->
-    <div id="green" class="block green lighten-1">
-        <nav class="pushpin-demo-nav pin-top" data-target="green">
-            <div class="nav-wrapper green">
-                <div class="container">
-                    <a href="#" class="brand-logo">Postres</a>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-        </div>
-    </div>
-    <!--Footer estandar del materializecss-->
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
+	<script>
+		$(document).ready(function() {
+			$('.pushpin-nav').each(function() {
+				var $this = $(this);
+				var $target = $('#' + $(this).attr('data-target'));
+				$this.pushpin({
+					top: $target.offset().top,
+					bottom: $target.offset().top + $target.outerHeight() - $this.height()
+				});
+			});
+			$('.target').pushpin({
+				top: 0,
+				bottom: 1000,
+				offset: 0,
+			});
+		});
+
+	</script>
+
+	<!--Barra de navegación simple del materializecss-->
+	<div class="navbar">
+		<nav>
+			<div class="nav-wrapper" style="padding-left: 1em; padding-right: 1em;">
+				<a href="#!" class="brand-logo">Logo</a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="sass.html">Index</a></li>
+					<li><a href="badges.html">Galería</a></li>
+					<li><a href="badges.html">Info</a></li>
+					<li><a href="badges.html">Contacto</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<!--Primer apartado del Pushpin (Entrantes)-->
+	<div id="blue" class="block fondoTrans">
+		<nav class="pushpin-nav pinned" data-target="blue">
+			<div class="nav-wrapper light-blue">
+				<div class="container">
+					<a href="#" class="brand-logo">Entrantes</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<!--Entrantes-->
+			<section id="ensaladas">
+				<div class="row">
+					<div class="col s12 m6 l4">
+						<div class="card">
+							<div class="card-image waves-effect waves-block waves-light">
+								<!--Carrito de compras-->
+								<div class="fixed-action-btn horizontal click-to-toggle posicion">
+									<a class="btn-floating red">
+										<i class="material-icons">shopping_basket</i>
+									</a>
+									<ul>
+										<li><a class="btn-floating red center"><!--<i class="material-icons tm_icon">filter_1</i>-->x1</a></li>
+										<li><a class="btn-floating yellow darken-1 center"><!--<i class="material-icons">filter_2</i>-->x2</a></li>
+										<li><a class="btn-floating green center"><!--<i class="material-icons">filter_3</i>-->x3</a></li>
+										<li><a class="btn-floating blue center"><!--<i class="material-icons">filter_4</i>-->x4</a></li>
+									</ul>
+								</div>
+								<!---------------------------------------------------------------------------------->
+								<img class="activator" src="img/platos/ensalada_caprichosa.jpg">
+							</div>
+							<div class="card-content">
+								<span class="card-title activator grey-text text-darken-4">Ensalada Caprichosa<i class="material-icons right">more_vert</i></span>
+								<p></p>
+
+							</div>
+							<div class="card-reveal">
+								<span class="card-title grey-text text-darken-4">Ensalada Caprichosa<i class="material-icons right">close</i></span>
+								<p>Deliciosa combinación gracias a la base vegetal, rica en vitaminas, al jamón dulce y al queso, que aportan proteínas y calcio al plato. El toque dulce del maíz y la zanahoria dan un sabor agradable en boca.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<!--Segundo apartado del pushpin (Primeros)-->
+	<div id="red" class="block fondoTrans">
+		<nav class="pushpin-nav pin-top" data-target="red">
+			<div class="nav-wrapper red">
+				<div class="container">
+					<a href="#" class="brand-logo">Primeros</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+		</div>
+	</div>
+	<!--Tercer apartado del pushpin (Postres)-->
+	<div id="green" class="block fondoTrans">
+		<nav class="pushpin-nav pin-top" data-target="green">
+			<div class="nav-wrapper green">
+				<div class="container">
+					<a href="#" class="brand-logo">Postres</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+		</div>
+	</div>
+	<!--Footer estandar del materializecss-->
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Footer Content</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2014 Copyright Text
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>

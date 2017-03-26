@@ -1,15 +1,55 @@
 /*Clases para hacer funcionar el PUSHPIN*/
+
+
+/*-------------------------------------*/
+
+
 /*Class for when element is above threshold*/
+
 .pin-top {
-    position: relative;
+	position: relative;
 }
 
 /*Class for when element is below threshold*/
+
 .pin-bottom {
-    position: relative;
+	position: relative;
 }
 
 /*Class for when element is pinned*/
+
 .pinned {
-    position: fixed !important;
+	position: fixed!important;
+}
+
+
+/*--------------------------*/
+
+
+/*Configuración de la cesta*/
+
+.posicion {
+	display: inline-block;
+	position: absolute;
+	right: 5px;
+	top: 5px
+}
+
+.fixed-action-btn.horizontal ul li {
+	margin: 0 auto;
+}
+
+h2,
+ul a.btn-floating {
+	text-shadow: 2px 2px 3px rgba(2, 2, 2, 1);
+}
+
+.btn-floating {
+	overflow: visible;
+}
+
+/**/
+
+.fondoTrans{
+	background-color: rgb(255, 255, 255, 0.5);
 }
