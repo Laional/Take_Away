@@ -19,6 +19,8 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<!--Import personal JS files-->
+	<script type="text/javascript" src="js/platos.js"></script>
+	<script type="text/javascript" src="js/funciones.js"></script>
 
 	<script>
 		$(document).ready(function() {
@@ -65,36 +67,7 @@
 		<div class="container">
 			<!--Entrantes-->
 			<section id="ensaladas">
-				<div class="row">
-					<div class="col s12 m6 l4">
-						<div class="card">
-							<div class="card-image waves-effect waves-block waves-light">
-								<!--Carrito de compras-->
-								<div class="fixed-action-btn horizontal click-to-toggle posicion">
-									<a class="btn-floating red">
-										<i class="material-icons">shopping_basket</i>
-									</a>
-									<ul>
-										<li><a class="btn-floating red center"><!--<i class="material-icons tm_icon">filter_1</i>-->x1</a></li>
-										<li><a class="btn-floating yellow darken-1 center"><!--<i class="material-icons">filter_2</i>-->x2</a></li>
-										<li><a class="btn-floating green center"><!--<i class="material-icons">filter_3</i>-->x3</a></li>
-										<li><a class="btn-floating blue center"><!--<i class="material-icons">filter_4</i>-->x4</a></li>
-									</ul>
-								</div>
-								<!---------------------------------------------------------------------------------->
-								<img class="activator" src="img/platos/ensalada_caprichosa.jpg">
-							</div>
-							<div class="card-content">
-								<span class="card-title activator grey-text text-darken-4">Ensalada Caprichosa<i class="material-icons right">more_vert</i></span>
-								<p></p>
-
-							</div>
-							<div class="card-reveal">
-								<span class="card-title grey-text text-darken-4">Ensalada Caprichosa<i class="material-icons right">close</i></span>
-								<p>Deliciosa combinación gracias a la base vegetal, rica en vitaminas, al jamón dulce y al queso, que aportan proteínas y calcio al plato. El toque dulce del maíz y la zanahoria dan un sabor agradable en boca.</p>
-							</div>
-						</div>
-					</div>
+				<div class="row" id="ensaladas_p">
 				</div>
 			</section>
 		</div>
@@ -109,6 +82,11 @@
 			</div>
 		</nav>
 		<div class="container">
+			<!--Principales-->
+			<section id="principales">
+				<div class="row" id="principales_p">
+				</div>
+			</section>
 		</div>
 	</div>
 	<!--Tercer apartado del pushpin (Postres)-->
@@ -121,6 +99,11 @@
 			</div>
 		</nav>
 		<div class="container">
+			<!--Postres-->
+			<section id="ensaladas">
+				<div class="row" id="postres_p">
+				</div>
+			</section>
 		</div>
 	</div>
 	<!--Footer estandar del materializecss-->
