@@ -1,6 +1,7 @@
 $(document).ready(function() {
-	//declarar la variable para depurar y no visualizar console.log
+	// Inicializamos las funcones de MODAL.
 	$('.modal').modal();
+	//declarar la variable para depurar y no visualizar console.log
 	var debug = true;
 	$.ajax ({
 				// Archivo que te trata los datos

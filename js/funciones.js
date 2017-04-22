@@ -1,6 +1,5 @@
 // función para mostrar los platos en nuestra pagina principal
 function pintaPlatos(categoriaPlato,fotoPlato,nombrePlato,precioPlato,descripPlato,id_plato){
-  console.log('llegamos hasta aqui');
 	var card =`
 	<div class="col s12 m6 l4">
 		<div class="card">
@@ -34,4 +33,56 @@ function pintaPlatos(categoriaPlato,fotoPlato,nombrePlato,precioPlato,descripPla
 		`;
 		var cat = `#${categoriaPlato}`;
 		$(cat).append(card);
+}
+
+// función para mostrar el contenido de nuestro pedido en una ventana MODAL
+function mostrarPedido(){
+	var hayCarrito = localStorage.getItem('JsonCart');
+	hayCarrito = JSON.parse(hayCarrito);
+	var nombre_plato;
+	var cantidad = 0;
+	var precio_unidad = 0;
+	var precio_total = 0;
+	var id_plato1;
+	var listado = "";
+	var modalCard = "";
+	$('#modal1').text(modalCard);
+	for (i in hayCarrito) {
+		nombre_plato = hayCarrito[i].nombrePlato;
+		cantidad = hayCarrito[i].cantidad;
+		precio_unidad = hayCarrito[i].precio;
+		id_plato1 = hayCarrito[i].id_plato;
+		precio_total = cantidad * precio_unidad;
+		listado +=	'<tr><th><a href="#"><i class="material-icons center" onClick="borrarPlato();">delete</i></a></th>'
+				+	'<td>'+nombre_plato+'</td>'
+				+	'<td>'+cantidad+'</td>'
+				+	'<td>'+precio_unidad+'</td>'
+				+	'<td>'+precio_total+'</td></tr>';
+	}
+	modalCard = `
+		<div class="modal-content">
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Nombre Plato</th>
+						<th>Cantidad</th>
+						<th>Precio Unidad</th>
+						<th>Precio Total</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					${listado}
+				</tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-action modal-close waves-effect waves-green btn" onClick="cerrarModal();"><i class="material-icons right">close</i>Cerrar</a>
+			<a href="#!" class="modal-action waves-effect waves-green btn" onClick="borrarPedido();"><i class="material-icons right">delete_forever</i>Borrar Pedido</a>
+			<a href="#!" class="modal-action waves-effect waves-green btn" onClick=""><i class="material-icons right"">delete_forever</i>Realizar Compra</a>
+		</div>
+	`;
+	$('#modal1').append(modalCard);
+	$('#modal1').modal('open');
 }
