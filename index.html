@@ -22,22 +22,97 @@
 	<script type="text/javascript" src="js/platos.js"></script>
 	<script type="text/javascript" src="js/funciones.js"></script>
 
+	<!-- Colocamos otro modal -->
+	<div id="modalUser" class="modal bottom-sheet">
+		<div class="modal-content col s12 m12 l12">
+			<div class="row">
+				<div class="col s12 m6 l6">
+					<h3>Login</h3>
+					<form action="">
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">email</i>
+								<input id="email_login" name="Email_Cliente" type="text" class="validate" required>
+								<label for="email_login">Email:</label>
+							</div>
+							<div class="input-field col s12">
+								<i class="material-icons prefix">fingerprint</i>
+								<input id="password_login" type="password" class="validate" required>
+								<label for="password_login">Password</label>
+							</div>
+						</div>
+						<div>
+							<p>
+								<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+								<label for="filled-in-box">Recordarme</label>
+							</p>
+							<a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Acceder</a>
+						</div>
+					</form>
+				</div>
+				<div class="col s12 m6 l6">
+					<h3>Registrarse</h3>
+					<form action="">
+						<div class="row">
+							<div class="input-field col s12 m6 l6">
+								<i class="material-icons prefix">account_circle</i>
+								<input id="user_registro" name="User_Name_Client" type="text" class="validate" required>
+								<label for="user_registro">Nombre de Usuario:</label>
+							</div>
+							<div class="input-field col s12 m6 l6">
+								<i class="material-icons prefix">face</i>
+								<input id="nombre_registro" name="nombre" type="text" class="validate" required>
+								<label for="nombre_registro">Nombre y Apellidos:</label>
+							</div>
+							<div class="input-field col s12 m6 l6">
+								<i class="material-icons prefix">email</i>
+								<input id="email_registro" name="e-mail" type="text" class="validate" required>
+								<label for="email_registro">Email:</label>
+							</div>
+							<div class="input-field col s6">
+								<i class="material-icons prefix">phone</i>
+								<input id="telefono_registro" name="telefono" type="tel" class="validate">
+								<label for="telefono_registro">Teléfono:</label>
+							</div>
+							<div class="input-field col s12 m6 l6">
+								<i class="material-icons prefix">location_on</i>
+								<input id="direccion_registro" name="direccion" type="text" class="validate" required>
+								<label for="direccion_registro">Dirección:</label>
+							</div>
+							<div class="input-field col s12 m6 l6">
+								<i class="material-icons prefix">my_location</i>
+								<input id="codigo_postal_registro" name="codigo_postal" type="text" class="validate" required>
+								<label for="codigo_postal_registro">Código Postal:</label>
+							</div>
+							<div class="input-field col s12 m6 l6">
+								<i class="material-icons prefix">fingerprint</i>
+								<input id="password_registro" name="Password_Cliente" type="password" class="validate" required>
+								<label for="password_registro">Password:</label>
+							</div>
+						</div>
+						<a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Registrar</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<script>
-		$(document).ready(function() {
-			$('.pushpin-nav').each(function() {
-				var $this = $(this);
-				var $target = $('#' + $(this).attr('data-target'));
-				$this.pushpin({
-					top: $target.offset().top,
-					bottom: $target.offset().top + $target.outerHeight() - $this.height()
-				});
-			});
-			$('.target').pushpin({
-				top: 0,
-				bottom: 1000,
-				offset: 0,
+	$(document).ready(function() {
+		$('.pushpin-nav').each(function() {
+			var $this = $(this);
+			var $target = $('#' + $(this).attr('data-target'));
+			$this.pushpin({
+				top: $target.offset().top,
+				bottom: $target.offset().top + $target.outerHeight() - $this.height()
 			});
 		});
+		$('.target').pushpin({
+			top: 0,
+			bottom: 1000,
+			offset: 0,
+		});
+	});
 	</script>
 
 	<!-- Colocamos el panel modal que nos cargue al principio -->
@@ -48,11 +123,12 @@
 			<div class="nav-wrapper" style="padding-left: 1em; padding-right: 1em;">
 				<a href="#!" class="brand-logo">Logo</a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="sass.html">Index</a></li>
-					<li><a href="badges.html">Galería</a></li>
-					<li><a href="badges.html">Info</a></li>
-					<li><a href="badges.html">Contacto</a></li>
-					<li><a href="#"><i class="material-icons" onClick="mostrarPedido()">shopping_cart</i></a></li>
+					<li><a href="#modalUser"><i class="material-icons">perm_identity</i></a></li>
+					<li><a href="index.html">Index</a></li>
+					<li><a href="#!">Galería</a></li>
+					<li><a href="#!">Info</a></li>
+					<li><a href="#!">Contacto</a></li>
+					<li><a href="#!"><i class="material-icons" onClick="mostrarPedido()">shopping_cart</i></a></li>
 				</ul>
 			</div>
 		</nav>
