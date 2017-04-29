@@ -288,3 +288,36 @@ function capturarArchivo(){
         console.log(files);
     });
 }
+
+// Funcion para ver información completa del plato
+function verPlato(valores){
+    event.preventDefault();
+    // Datos de VER MODAL
+    $('.titulo').html(valores.Nombre_plato);
+    $('#foto').attr('src', "../img/platos/"+valores.Foto_plato);
+    $('#precio1').html('Precio por racion: '+valores.Precio_plato+"€");
+    $('#comentario').html(valores.Descripcion_plato);
+    $('#catplat').html('Categoría del plato: '+valores.Nombre_categoria);
+    // Datos del modal MODIFICAR PLATO
+    event.preventDefault();
+    $('#id_plato').val(valores.ID_plato);
+    $('.plato_nombre').val(valores.Nombre_plato);
+    $('.plato_precio').val(valores.Precio_plato);
+    $('.plato_descripcion').val(valores.Descripcion_plato);
+    $('#list' ).empty();
+    $('#list').append('<img id="imgFile" src="" style="width: 100%;">');
+    $('#p_foto').val(valores.Foto_plato);
+    $('#imgFile').attr("src","../img/platos/"+valores.Foto_plato);
+    if (valores.Disponible_plato != 'on'){
+        $('#p_disponible').prop('checked', false);
+    } else {
+        console.log('checked => ADD')
+        $('#p_disponible').prop('checked', true);
+    }
+    $('#categoria option:selected').attr('selected', false);
+    $('#categoria option[value='+valores.ID_categoria+']').attr('selected', 'true');
+    $('select').material_select();
+    Materialize.updateTextFields();
+    // Abrir Modal de VER PLATO
+    $('#vistaPlato').modal('open');
+}
