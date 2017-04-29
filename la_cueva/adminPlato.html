@@ -12,26 +12,162 @@
 	<link type="text/css" rel="stylesheet" href="../css/styles.css">
 	<!--Document Title-->
 	<title>Take Away</title>
+	<style>
+            .modal{
+                width: 400px;
+            }
+            table {
+                border: 0;
+                padding: 0;
+                margin: 0 0 20px 0;
+                border-collapse: collapse;
+            }
+            th {
+                padding: 5px;
+                /* NOTE: th padding must be set explicitly in order to support IE */
+                text-align: right;
+                font-weight:bold;
+                line-height: 2em;
+                color: #FFF;
+                background-color: #555;
+            }
+            tbody td {
+                padding: 10px;
+                line-height: 18px;
+                border-top: 1px solid #E0E0E0;
+            }
+            tbody tr:nth-child(2n) {
+                background-color: #F7F7F7;
+            }
+            tbody tr:hover {
+                background-color: #EEEEEE;
+            }
+            td {
+                text-align: right;
+            }
+            td:first-child, th:first-child {
+                text-align: left;
+            }
+
+            .btn{
+                margin: 2px!important;
+            }
+        </style>
 </head>
 
 <body>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/table_fixed_header.js"></script>
 	<script type="text/javascript" src="../js/listaPlato.js"></script>
+	<script type="text/javascript" src="../js/funciones.js"></script>
+
+    <!-- Lista de Diferentes MODALES ------------------------------------------------------------------------------ -->
+    <!-- Modal para ver el plato seleccionado -->
+        <div id="vistaPlato" class="modal">
+            <div class="modal-content">
+                <div class="card center">
+                    <span class="card-title activator grey-text text-darken-4"><span class="titulo">Card Title</span><i class="material-icons right">more_vert</i></span>
+                    <div class="card-image waves-effect waves-block waves-light" >
+                        <img id="foto" class="activator" src="" style="width: 100%;">
+                    </div>
+                    <div class="card-content">
+                        <p id="precio1">PRECIO</p>
+                        <p id="catplat">CATEGORIA</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><span class="titulo">Card Title</span><i class="material-icons right">close</i></span>
+                        <p id="comentario">Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Cerrar</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn" onClick="$('#modModificar').modal('open');">Modificar</a>
+            </div>
+        </div>
+        <!-- Modal Modificar Plato -->
+        <div id="modModificar" class="modal">
+            <div class="modal-content">
+                <h4>Editar Plato</h4>
+                <form action="" method="POST" id="modPlato">
+                <div class="row">
+
+                    <div class="col s12 m12 l12 input-field hidden">
+                        <input id="id_plato" name="ID_plato" type="text" class="validate" hidden required>
+                    </div>
+
+                    <div class="col s12 m12 l12 input-field">
+                        <input id="p_nombre" name="Nombre_plato" type="text" class="validate plato_nombre"  required>
+                        <label class="active" for="p_nombre">Nombre Plato</label>
+                    </div>
+                    <div class="col s12 m12 l12 input-field">
+                        <input id="p_precio" name="Precio_plato" type="number" class="validate plato_precio" required step="0.01">
+                        <label class="active" for="p_precio">Precio Ración</label>
+                    </div>
+                    <div class="col s12 m12 l12 input-field">
+                        <textarea id="p_descripcion" name="Descripcion_plato" class="materialize-textarea validate plato_descripcion"></textarea>
+                        <label class="active" for="p_descripcion">Descripción</label>
+                    </div>
+
+                    <div class="col s12 m12 l12" id="list">
+                    </div>
+                    <div class="col s12 m12 l12 file-field input-field">
+                      <div class="btn">
+                        <span>Imagen</span>
+                        <input id="fotoPlat" type="file">
+                      </div>
+                      <div class="file-path-wrapper">
+                        <input id="p_foto" class="file-path validate plato_foto" name="Foto_plato" type="text" required>
+                      </div>
+                    </div>
+
+
+                    <div class="col s12 m12 l12">
+                        <label>Categorias</label>
+                        <div class="input-field">
+                            <select id="categoria" name="ID_categoria_plato" class="browser-default" >
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l12 switch">
+                        <h6>Disponibilidad del Plato</h6>
+                        <label>
+                            No disponible
+                            <input id="p_disponible" class="plato_disponible" name="Disponible_plato" type="checkbox"   checked="checked">
+                            <span class="lever"></span>
+                            Disponible
+                        </label>
+                    </div>
+
+
+                </div>
+                <a href="#!" class="modal-close waves-effect waves-green btn" onClick="deletPlato();">Borrar</a>
+                <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 1em;">Actualizar
+                    <i class="material-icons right">restaurant</i>
+                </button>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn">Cerrar</a>
+            </form>
+            </div>
+        </div>
 
 	<!-- Container Principal -------------------------------------------------------------------------------------- -->
 	<div class="container">
-		<h2>Formulario de contactos recibidos</h2>
+		<h2 class="center">Administrador de Platos</h2>
 		<table id="listaPlatos">
 			<thead>
 				<tr>
-					<th>Nombre</th>
-					<th>Precio Ración</th>
-					<th>Descripción</th>
-					<th>Foto</th>
-					<th>Disponibilidad</th>
-					<th>Categoría</th>
+					<th class="center">Nombre</th>
+					<th class="center">Precio Ración</th>
+					<th class="center">Foto</th>
+					<th class="center">Disponibilidad</th>
+					<th class="center">Categoría</th>
+                    <th class="center">Ver</th>
+                    <th class="center">Mod</th>
+                    <th class="center">Borrar</th>
 				</tr>
 			</thead>
 			<tbody>
