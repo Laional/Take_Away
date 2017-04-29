@@ -1,4 +1,100 @@
-// Función para mostrar los platos en nuestra pagina principal
+// Funcion para inicializar el pushpin (index.html/platos.js)
+function pushpinUp() {
+    $('.pushpin-nav').each(function() {
+        var $this = $(this);
+        var $target = $('#' + $(this).attr('data-target'));
+        $this.pushpin({
+            top: $target.offset().top,
+            bottom: $target.offset().top + $target.outerHeight() - $this.height()
+        });
+    });
+    $('.target').pushpin({
+        top: 0,
+        bottom: 1000,
+        offset: 0,
+    });
+}
+
+// Funcion para mostrar todos los platos en la pagina principal (platos.js)
+function mostrarTodosPlatosIndex() {
+    $.ajax ({
+				// Archivo que te trata los datos
+	            url: 'php/getListaPlato.php',
+	            // Forma de enviar los datos
+	            type: 'GET',
+	            // Tipo de datos que se envian
+	            dataType: 'json',
+	            // La variable donde estan los datos a tratar. (datos enviados)
+	            //data: jsonData,
+	            // Imprecindible para saber si hay errores i/o buen funcionamiento
+	            // Funcion que se ejecuta cuando ha funcionado la llamada ajax correctamente
+	            success: function(result){
+	                    $.each(result.query, function(campo, valor){
+	                    	var nombrePlato = "";
+	                    	var precioPlato = 0;
+	                    	var descripPlato = "";
+	                    	var categoriaPlato = "";
+	                    	var fotoPlato = "";
+	                    	var disponiblePlato = "";
+	                    	var card = "";
+	                    	var id_plato = "";
+
+	                    	// otra manera de asignar las variables
+	                    	nombrePlato = valor.Nombre_plato;
+	                    	precioPlato = valor.Precio_plato;
+	                    	descripPlato = valor.Descripcion_plato;
+	                    	categoriaPlato = valor.Nombre_categoria;
+	                    	fotoPlato = valor.Foto_plato;
+	                    	disponiblePlato = valor.Disponible_plato;
+	                    	id_plato = valor.ID_plato;
+
+	                    	$.each(this, function(campo , valor) {
+
+		                    	switch(campo) {
+		                    		case "Nombre_plato":
+		                    			nombrePlato = valor;
+		                    			break;
+		                    		case "Precio_plato":
+				                    	precioPlato = valor;
+		                    			break;
+									case "Foto_plato":
+									    fotoPlato = valor;
+									    break;
+									case "Disponible_plato":
+									   	descripPlato = valor;
+									   	break;
+									case "Nombre_categoria":
+									   	categoriaPlato = valor;
+									   	break;
+									case "Disponible_plato":
+									   	disponiblePlato = valor;
+								}
+        					})
+
+	                    	if (disponiblePlato == "on"){
+	                    		switch (categoriaPlato){
+	                    			case "Entrantes":
+		                    			pintaPlatos("ensaladas_p",fotoPlato,nombrePlato,precioPlato,descripPlato,id_plato);
+	                    				break;
+	                    			case "Principales":
+	                    				pintaPlatos("primeros_p",fotoPlato,nombrePlato,precioPlato,descripPlato,id_plato);
+	                    				break;
+	                    			case "Postres":
+	                    				pintaPlatos("postres_p",fotoPlato,nombrePlato,precioPlato,descripPlato,id_plato);
+	                    				break;
+	                    		}
+	                    	}
+
+	                    })
+	            },
+	            error: function(result){
+	                alert("ERROR!!!!!!!");
+	                //console.error(result);
+	            }
+	        });
+}
+
+// Función para mostrar los platos en nuestra pagina principal (platos.js(funcion mostrarTodosPlatosIndex))
 function pintaPlatos(categoriaPlato,fotoPlato,nombrePlato,precioPlato,descripPlato,id_plato) {
 	var card =`
 	<div class="col s12 m6 l4">
@@ -35,7 +131,7 @@ function pintaPlatos(categoriaPlato,fotoPlato,nombrePlato,precioPlato,descripPla
 		$(cat).append(card);
 }
 
-// Función para mostrar el contenido de nuestro pedido en una ventana MODAL
+// Función para mostrar el contenido de nuestro pedido en una ventana MODAL (index.html)
 function mostrarPedido() {
 	var hayCarrito = localStorage.getItem('JsonCart');
 	hayCarrito = JSON.parse(hayCarrito);
@@ -87,7 +183,7 @@ function mostrarPedido() {
 	$('#modal1').modal('open');
 }
 
-// Funcion para mostrar las categorias dentro de un SELECT de MATERIALIZECSS
+// Funcion para mostrar las categorias dentro de un SELECT de MATERIALIZECSS (listaPlato.js)
 function mostrarCategorias(){
 	$.ajax ({
 			// Archivo que te trata los datos
@@ -128,7 +224,7 @@ function mostrarCategorias(){
 	})
 }
 
-// Funcion para mostrar todos los platos.
+// Funcion para mostrar todos los platos (listaPlato.js)
 function mostrarTodosPlatos(){
     $.ajax ({
         // Archivo que te trata los datos
@@ -184,7 +280,7 @@ function mostrarTodosPlatos(){
     });
 }
 
-// Funcion para capturar los archivos.
+// Funcion para capturar los archivos (listaPlato.js)
 function capturarArchivo(){
     // Se prepara evento para capturar el archivo
     $('input[type=file]').on('change', function(event) { // al cambiar el nombre del archivo en el campo

@@ -1,14 +1,14 @@
 $(document).ready(function () {
+    // Inicializamos la funcion MODAL en para documento correspondiente.
+	$('.modal').modal();
 	// Inicializamos la funcion para conseguir categorias de la base de datos.
 	mostrarCategorias();
-	// Inicializamos la funcion MODAL en para documento correspondiente.
-	$('.modal').modal();
     // Inicializamos la funcion para que nos muestre todos los platos por pantalla dentro de una tabla.
     mostrarTodosPlatos();
 	// Inicializamo la funcion para capturar el archivo.
     capturarArchivo();
 
-    /*-----------------------------------------------------------------------------------*/
+    /* ----------------------------------------------------------------------------------- */
     function verImg(evt) {
         files = evt.target.files; // FileList object
 
@@ -33,6 +33,6 @@ $(document).ready(function () {
     }
 
     document.getElementById('fotoPlat').addEventListener('change', verImg, false);
-    /*-----------------------------------------------------------------------------------*/
+    /* ----------------------------------------------------------------------------------- */
 
 });
