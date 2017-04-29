@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     $mysqli = new mysqli('localhost', 'root', '', 'take_away');
     //  declaramos que este en UTF-8
     mysqli_set_charset($mysqli,'utf8');
-    $sql = "SELECT tp.Nombre_plato, tp.Precio_plato, tp.Descripcion_plato, tp.Foto_plato, tp.Disponible_plato, tp.ID_plato, tc.Nombre_categoria FROM t_platos tp, t_categorias tc WHERE tp.ID_categoria_plato = tc.ID_categoria";
+    $sql = "SELECT tp.Nombre_plato, tp.Precio_plato, tp.Descripcion_plato, tp.Foto_plato, tp.Disponible_plato, tp.ID_plato, tc.ID_categoria, tc.Nombre_categoria FROM t_platos tp, t_categorias tc WHERE tp.ID_categoria_plato = tc.ID_categoria";
     // en caso de que salga error, le ponemos una condición
     if ($mysqli){
         //creamos una variable con todos los datos.
