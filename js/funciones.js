@@ -1,5 +1,5 @@
-// función para mostrar los platos en nuestra pagina principal
-function pintaPlatos(categoriaPlato,fotoPlato,nombrePlato,precioPlato,descripPlato,id_plato){
+// Función para mostrar los platos en nuestra pagina principal
+function pintaPlatos(categoriaPlato,fotoPlato,nombrePlato,precioPlato,descripPlato,id_plato) {
 	var card =`
 	<div class="col s12 m6 l4">
 		<div class="card">
@@ -35,8 +35,8 @@ function pintaPlatos(categoriaPlato,fotoPlato,nombrePlato,precioPlato,descripPla
 		$(cat).append(card);
 }
 
-// función para mostrar el contenido de nuestro pedido en una ventana MODAL
-function mostrarPedido(){
+// Función para mostrar el contenido de nuestro pedido en una ventana MODAL
+function mostrarPedido() {
 	var hayCarrito = localStorage.getItem('JsonCart');
 	hayCarrito = JSON.parse(hayCarrito);
 	var nombre_plato;
@@ -85,4 +85,45 @@ function mostrarPedido(){
 	`;
 	$('#modal1').append(modalCard);
 	$('#modal1').modal('open');
+}
+
+// Funcion para mostrar las categorias dentro de un SELECT de MATERIALIZECSS
+function mostrarCategorias(){
+	$.ajax ({
+			// Archivo que te trata los datos
+			url: '../php/getSeleccionarCategoria.php',
+			// Forma de enviar los datos
+			type: 'GET',
+			// Tipo de datos que se envian
+			dataType: 'json',
+			// Imprecindible para saber si hay errores i/o buen funcionamiento
+			// Funcion que se ejecuta cuando ha funcionado la llamada ajax correctamente
+			success: function(result){
+					var etiquetas = '';
+					var values = '';
+					var options = '';
+					// console.log(result.error);
+					// console.log(result.query);
+					// console.log(result.resultado);
+					$.each(result.query, function() {
+							$.each(this, function(campo, valor) {
+									if (campo == 'id') {
+                                        values = valor;
+                                    } else {
+                                        etiquetas = valor;
+                                    }
+							});
+							options += '<option value="'
+									+values
+									+'">'
+									+etiquetas
+									+'</option>';
+					});
+					$('#categoria').html(options);
+					$('select').material_select();
+			},
+			error: function(result){
+					alert('ERROR!!!!!!!');
+			}
+	})
 }
